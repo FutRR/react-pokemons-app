@@ -13,7 +13,7 @@ const PokemonList: FunctionComponent= () => {
                 <div className="row">
                     {
                         pokemons.map((pokemon) => (
-                            <PokemonCard key={pokemon.id} pokemon={pokemon} border="3px solid #2c6d00"/>
+                            <PokemonCard key={pokemon.id} pokemon={pokemon} border="3px solid #3f51b5"/>
                         ))
                     }
 
