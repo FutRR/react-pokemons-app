@@ -4,12 +4,16 @@ import Pokemon from '../models/pokemon';
 import POKEMONS from '../models/mock-pokemons';
 import formatDate from '../helpers/format-date';
 import formatType from '../helpers/format-type';
+import { useHistory } from "react-router-dom";
+
+
   
 type Params = { id: string };
   
 const PokemonsDetail: FunctionComponent<RouteComponentProps<Params>> = ({ match }) => {
     
   const [pokemon, setPokemon] = useState<Pokemon|null>(null);
+  const history = useHistory();
   
   useEffect(() => {
     POKEMONS.forEach(pokemon => {
@@ -18,6 +22,10 @@ const PokemonsDetail: FunctionComponent<RouteComponentProps<Params>> = ({ match 
       }
     })
   }, [match.params.id]);
+
+  const goToPokemonEdit = (id:Number) => {
+        history.push(`/pokemons/edit/${id}`);
+    }
     
   return (
     <div>
@@ -61,6 +69,9 @@ const PokemonsDetail: FunctionComponent<RouteComponentProps<Params>> = ({ match 
                 </div>
                 <div className="card-action">
                   <Link to="/">Retour</Link>
+                  <div className='btn waves-effect indigo' onClick={() => goToPokemonEdit(pokemon.id)}>
+                    <span className="material-symbols-outlined">edit</span>
+                  </div>
                 </div>
               </div>
             </div>

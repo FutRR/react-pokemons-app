@@ -14,7 +14,6 @@ const PokemonCard : FunctionComponent<Props> = ({pokemon, border="3px solid #3f5
 
     
     const [color, setColor] = useState<string>("#c5cae9");
-
     const history = useHistory();
  
     const showBorder = () => {
