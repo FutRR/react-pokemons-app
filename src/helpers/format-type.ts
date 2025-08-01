@@ -8,9 +8,6 @@ const formatType = (type:string):string => {
         case 'Eau':
             color = 'red lighten-1';
             break;
-        case 'Feu':
-            color = 'blue lighten-1';
-            break;
         case 'Plante':
             color = 'green lighten-1';
             break;
