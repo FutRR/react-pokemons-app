@@ -1,26 +1,15 @@
-import React, {FunctionComponent, useState, useEffect} from "react";
-import Pokemon from "../models/pokemon";
-import POKEMONS from "../models/mock-pokemons";
+import React, {FunctionComponent} from "react";
+import usePokemons from "../hooks/Pokemon.hook";
 import PokemonCard from "../components/PokemonCard";
 
 const PokemonList: FunctionComponent= () => {
+
+    const pokemons = usePokemons();
     
-   const [pokemons, setPokemons] = useState<Pokemon[]>([])
-
-   const [count, setCount] = useState(0)
-
-    useEffect(() => {
-            setPokemons(POKEMONS);
-        }, [])
-
     return(
         <div>
             <h1 className="center">App Pokemon</h1>
             <div className="container">
-                <p>Compteur : {count}</p>
-                <button onClick={() => {setCount(count + 1)}}>
-                    Clique ici!
-                </button>
                 <div className="row">
                     {
                         pokemons.map((pokemon) => (
